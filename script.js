@@ -1,59 +1,59 @@
 // DEIXEI AS QUESTÕES COMENTADAS AQUI CASO NÃO CONSEGUISSE RODAR COM O ARQUIVO JSON
-// const questions = [
-//   {
-//     question: "Qual palavra-chave é usada para declarar uma variável em JavaScript?",
-//     options: ["value", "int", "var", "define"],
-//     answer: 2
-//   },
-//   {
-//     question: "Como se escreve um comentário de uma linha em JavaScript?",
-//     options: ["<!-- comentário -->", "// comentário", "# comentário", "/* comentário */"],
-//     answer: 1
-//   },
-//   {
-//     question: "Qual desses valores é considerado falsy?",
-//     options: ["{}", "null", "[]", "0"],
-//     answer: 1
-//   },
-//   {
-//     question: "Qual operador é usado para igualdade estrita (valor e tipo)?",
-//     options: ["===", "=", "==", "!="],
-//     answer: 0
-//   },
-//   {
-//     question: "Qual função exibe uma mensagem no console?",
-//     options: ["alert()", "prompt()", "console.write()", "console.log()"],
-//     answer: 3
-//   },
-//   {
-//     question: "Como se cria uma função em JavaScript?",
-//     options: ["func nome() {}", "def nome() {}", "new function nome()", "function nome() {}"],
-//     answer: 3
-//   },
-//   {
-//     question: "Qual método adiciona um item ao final de um array?",
-//     options: ["push()", "add()", "append()", "concat()"],
-//     answer: 0
-//   },
-//   {
-//     question: "O que let permite que var não permite?",
-//     options: ["Criar strings", "Criar funções", "Escopo de bloco", "Declarações constantes"],
-//     answer: 2
-//   },
-//   {
-//     question: "O que acontece ao usar = ao invés de ==?",
-//     options: ["Compara valores", "Atribui valor", "Compara tipo", "Cria função"],
-//     answer: 1
-//   },
-//   {
-//     question: "Como você escreve uma condição “se” em JavaScript?",
-//     options: ["if (condição) {}", "if condição:", "se (condição)", "when (condição)"],
-//     answer: 0
-//   },
-// ];
+const questions = [
+  {
+    question: "Qual palavra-chave é usada para declarar uma variável em JavaScript?",
+    options: ["value", "int", "var", "define"],
+    answer: 2
+  },
+  {
+    question: "Como se escreve um comentário de uma linha em JavaScript?",
+    options: ["<!-- comentário -->", "// comentário", "# comentário", "/* comentário */"],
+    answer: 1
+  },
+  {
+    question: "Qual desses valores é considerado falsy?",
+    options: ["{}", "null", "[]", "0"],
+    answer: 1
+  },
+  {
+    question: "Qual operador é usado para igualdade estrita (valor e tipo)?",
+    options: ["===", "=", "==", "!="],
+    answer: 0
+  },
+  {
+    question: "Qual função exibe uma mensagem no console?",
+    options: ["alert()", "prompt()", "console.write()", "console.log()"],
+    answer: 3
+  },
+  {
+    question: "Como se cria uma função em JavaScript?",
+    options: ["func nome() {}", "def nome() {}", "new function nome()", "function nome() {}"],
+    answer: 3
+  },
+  {
+    question: "Qual método adiciona um item ao final de um array?",
+    options: ["push()", "add()", "append()", "concat()"],
+    answer: 0
+  },
+  {
+    question: "O que let permite que var não permite?",
+    options: ["Criar strings", "Criar funções", "Escopo de bloco", "Declarações constantes"],
+    answer: 2
+  },
+  {
+    question: "O que acontece ao usar = ao invés de ==?",
+    options: ["Compara valores", "Atribui valor", "Compara tipo", "Cria função"],
+    answer: 1
+  },
+  {
+    question: "Como você escreve uma condição “se” em JavaScript?",
+    options: ["if (condição) {}", "if condição:", "se (condição)", "when (condição)"],
+    answer: 0
+  },
+];
 
 // Variável que vai receber as perguntas do JSON
-let questions = [];
+// let questions = [];
 let currentQuestion = 0; //Índice da pergunta atual
 let score = 0;  //Pontuação do jogador
 let timer;  // Cronômetro
@@ -69,19 +69,19 @@ const playerNameSpan = document.getElementById("player-name");
 const rulesModal = document.getElementById("rules-modal");
 
 // Carrega as perguntas do arquivo JSON e salva esse conteudo na variável questions. Caso as perguntas não carreguem, aparece a mensagem de erro de carregamento no console. 
-fetch("questions.json")
-  .then(response => {
-    if (!response.ok) {
-      throw new Error("Erro ao carregar o arquivo JSON");
-    }
-    return response.json();
-  })
-  .then(data => {
-    questions = data;
-  })
-  .catch(error => {
-    console.error("Erro ao carregar perguntas:", error);
-  });
+// fetch("questions.json")
+//   .then(response => {
+//     if (!response.ok) {
+//       throw new Error("Erro ao carregar o arquivo JSON");
+//     }
+//     return response.json();
+//   })
+//   .then(data => {
+//     questions = data;
+//   })
+//   .catch(error => {
+//     console.error("Erro ao carregar perguntas:", error);
+//   });
 
 
 // Salva o nome do jogador quando digitado no input e gera um alerta
