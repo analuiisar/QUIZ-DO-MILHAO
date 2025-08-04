@@ -1,0 +1,395 @@
+body {
+  font-family: 'Segoe UI', Tahoma, sans-serif;
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  margin: 0;
+  padding: 0;
+  color: #fff;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(0,0,0,0.3);
+  padding: 30px 20px;
+}
+
+.logo {
+  width: 120px;
+  height: auto;
+}
+
+.logo img {
+  width: 90%;
+  height: auto;
+  display: block;
+  border-radius: 30px;
+}
+
+.player-info {
+  position: fixed;
+  top: 15px;
+  right: 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 6px 12px;
+  border-radius: 25px;
+  color: white;
+  font-weight: 600;
+  font-size: 16px;
+  z-index: 1000;
+  box-shadow: 0 0 10px rgba(0,0,0,0.7);
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+main {
+  text-align: center;
+  padding: 20px;
+}
+
+h2 {
+  font-size: large;
+  margin-top: 0px;
+}
+
+input[type="text"] {
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+/* Botões principais da tela inicial */
+#main-buttons button {
+  width: 220px;
+  padding: 14px 20px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  letter-spacing: 1px;
+}
+
+#main-buttons button:hover {
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  
+}
+
+#main-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.button-save {
+  padding: 10px 20px;
+  margin: 5px;
+  cursor: pointer;
+  border-radius: 20px;
+  border: none;
+  font-size: 16px;
+  background-color: #fff;
+  color: #333;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+  font-weight: bold;
+}
+
+button:hover {
+  background: #f1f1f1;
+  transform: scale(1.05);
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* Tela de Regras */
+#rules-modal .modal-content {
+  position: relative;
+  background: rgba(255,255,255,0.1);
+  padding: 40px 30px 20px;
+  border-radius: 12px;
+  text-align: center;
+  color: white;
+}
+
+/* Fundo da tela de regras */
+#rules-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+}
+
+#close-rules {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  background: transparent;
+  border: none;
+  font-size: 28px;
+  color: #fff;
+  cursor: pointer;
+}
+
+#close-rules:hover {
+  color: #ff5c5c;
+}
+
+/* Barra de progresso */
+.progress-container {
+  position: relative;
+  width: 70%;
+  background: rgba(255,255,255,0.3);
+  margin: 10px auto;
+  height: 25px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+#progress-bar {
+  height: 100%;
+  background: #00ffb7;
+  width: 0%;
+  transition: width 0.8s ease-in-out;
+}
+
+#progress-text {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 14px;
+  font-weight: bold;
+  color: #000;
+  line-height: 25px;
+}
+
+/* Perguntas */
+#options {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+#options button {
+  padding: 14px 20px;
+  font-size: 17px;
+  border-radius: 12px;
+  border: 2px solid transparent;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+#options button:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.4);
+  transform: scale(1.03);
+}
+
+#options button:disabled {
+  cursor: default;
+  opacity: 0.7;
+}
+
+#options button.correct {
+  background-color: rgba(40, 167, 69, 0.85);
+  border-color: #28a745;
+  color: white;
+  font-weight: bold;
+  box-shadow: 0 0 10px #28a745;
+}
+
+#options button.incorrect {
+  background-color: rgba(220, 53, 69, 0.85);
+  border-color: #dc3545;
+  color: white;
+  font-weight: bold;
+  box-shadow: 0 0 10px #dc3545;
+}
+
+/* Timer */
+#timer {
+  font-size: 24px;
+  margin: 10px;
+  background: rgba(0,0,0,0.3);
+  padding: 5px 15px;
+  border-radius: 10px;
+}
+
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#feedback {
+  margin-top: 15px;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 10px 20px;
+  border-radius: 10px;
+  display: inline-block;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+#feedback.show {
+  opacity: 1;
+}
+
+#feedback.correct {
+  background: rgba(40, 167, 69, 0.85);
+  color: #fff;
+}
+
+#feedback.incorrect {
+  background: rgba(220, 53, 69, 0.85);
+  color: #fff;
+}
+
+/* Área de botões dentro do quiz */
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 30px;
+  align-items: center;
+}
+
+/* Botões de ajuda */
+.help-buttons {
+  display: flex;
+  gap: 20px;
+}
+
+.help-buttons button {
+  min-width: 160px;
+  padding: 14px 22px;
+  font-size: 16px;
+  font-weight: 700;
+  border-radius: 15px;
+  border: 1.5px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+  cursor: pointer;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.help-buttons button:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.25);
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25);
+}
+
+.help-buttons button:disabled {
+  opacity: 0.5;
+  cursor: default;
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: none;
+}
+
+/* Botões principais do quiz */
+.main-buttons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+.main-buttons button {
+  min-width: 140px;
+  padding: 14px 22px;
+  font-size: 16px;
+  font-weight: 700;
+  border-radius: 15px;
+  border: 1.5px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+  cursor: pointer;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+}
+
+.main-buttons button:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.25);
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25);
+}
+
+#restart {
+  border-color: #e74c3c;
+  color: #e74c3c;
+}
+
+#restart:hover:not(:disabled) {
+  background: rgba(231, 76, 60, 0.25);
+  color: #fff;
+  border-color: #c0392b;
+  box-shadow: 0 12px 28px rgba(192, 57, 43, 0.7);
+}
+
+#quit {
+  border-color: #e9700d;
+  color: #e9700d;
+}
+
+#quit:hover:not(:disabled) {
+  background: rgba(149, 165, 166, 0.25);
+  color: #fff;
+  border-color: #7f8c8d;
+  box-shadow: 0 12px 28px rgba(127, 140, 141, 0.7);
+}
+
+#play-again {
+  padding: 14px 30px;
+  font-size: 18px;
+  font-weight: 700;
+  border-radius: 25px;
+  border: 2px solid #00ffb7;        
+  background: transparent;           
+  color: #00ffb7;                   
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 255, 183, 0.5);
+}
+
+#play-again:hover {
+  background: #00ffb7;               
+  color: #000;                      
+  box-shadow: 0 8px 24px rgba(0, 255, 183, 0.8);
+  transform: scale(1.05);
+}

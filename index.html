@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz.JS</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <img src="logo.png" alt="Logo do Quiz">
+        </div>
+        <div class="player-info" id="player-info">
+            <img src="imagem avatar.jpg" class="avatar" alt="avatar">
+            <span id="player-name"></span>
+        </div>
+    </header>
+
+    <!-- Tela inicial do Quiz -->
+    <main id="start-screen">
+        <h1>Bem-vindo ao Quiz.JS!</h1>
+        <h2>Aqui você poderá testar suas habilidades em JavaScript.</h2>
+        <div id="name-container">
+            <input type="text" id="name-input" placeholder="Digite seu nome">
+            <button class="button-save" id="save-name">Salvar</button>
+        </div>
+        <div id="main-buttons">
+            <button id="show-rules">Regras</button>
+            <button id="start-game">Iniciar Jogo</button>
+        </div>
+        <div id="rules-modal" class="hidden">
+            <div class="modal-content">
+                <button id="close-rules">&times;</button>
+                <!-- Botão para fechar as regras, &times é utilizado gera o símbolo X para fechar-->
+                <h2>Regras do Jogo</h2>
+                <ul>
+                    <li>Serão 4 alternativas para cada pergunta e somente uma está correta.</li>
+                    <li>Você terá 15 segundos para responder cada pergunta.</li>
+                    <li>Você terá 2 opções de ajuda que porderão ser utilizadas até 2 vezes em cada partida.</li>
+                    <li>Sua pontuação total será mostrada ao final do jogo.</li>
+                </ul>
+            </div>
+        </div>
+    </main>
+
+    <!-- Tela das perguntas -->
+    <main id="quiz-screen" class="hidden">
+        <div class="top-bar">
+            <div class="progress-container">
+                <div id="progress-bar"></div>
+                <span id="progress-text"></span>
+            </div>
+            <div class="timer-container">
+                <div id="timer">15</div>
+            </div>
+        </div>
+        <div id="question-container">
+            <h2 id="question"></h2>
+            <div id="options"></div>
+        </div>
+        <div id="feedback"></div>
+        <div class="actions">
+            <!-- Botões de ajuda -->
+            <div class="help-buttons">
+                <button id="skip">⏭️ Pular Pergunta</button>
+                <button id="auto-correct">✅ Acertar Pergunta</button>
+            </div>
+            <div class="main-buttons">
+                <button id="restart">Reiniciar</button>
+                <button id="quit">Desistir</button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Tela final -->
+    <main id="end-screen" class="hidden">
+        <h2>Fim do Jogo!</h2>
+        <p id="score"></p>
+        <p id="ranking"></p>
+        <button id="play-again">Jogar Novamente</button>
+    </main>
+
+    <!-- Importar dados do arquivo JS-->
+    <script src="script.js"></script>
+</body>
+</html>
