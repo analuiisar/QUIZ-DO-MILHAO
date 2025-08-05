@@ -54,6 +54,7 @@ const questions = [
 
 // Variável que vai receber as perguntas do JSON
 // let questions = [];
+
 let currentQuestion = 0; //Índice da pergunta atual
 let score = 0;  //Pontuação do jogador
 let timer;  // Cronômetro

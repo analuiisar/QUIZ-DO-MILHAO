@@ -12,8 +12,11 @@ Na tela de perguntas o jogador também terá disponível 1 botão de Reiniciar o
 No final do jogo é possível verificar sua porcentagem de acertos. 
 
 OBS: conforme proposto, as perguntas foram colocadas em um arquivo separado (JSON) e para que as mesmas rodassem de forma adequada durante o jogo foi necessário utilizar os seguintes códigos no git bash: 
+
 node -v
+
 npm install -g http-server
+
 http server
 
 E após a utilização desses códigos o link: http://localhost:8080 foi copiado e colado no browser. 
