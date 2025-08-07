@@ -1,59 +1,59 @@
 // DEIXEI AS QUESTÕES COMENTADAS AQUI CASO NÃO CONSEGUISSE RODAR COM O ARQUIVO JSON
-const questions = [
-  {
-    question: "Qual palavra-chave é usada para declarar uma variável em JavaScript?",
-    options: ["value", "int", "var", "define"],
-    answer: 2
-  },
-  {
-    question: "Como se escreve um comentário de uma linha em JavaScript?",
-    options: ["<!-- comentário -->", "// comentário", "# comentário", "/* comentário */"],
-    answer: 1
-  },
-  {
-    question: "Qual desses valores é considerado falsy?",
-    options: ["{}", "null", "[]", "0"],
-    answer: 1
-  },
-  {
-    question: "Qual operador é usado para igualdade estrita (valor e tipo)?",
-    options: ["===", "=", "==", "!="],
-    answer: 0
-  },
-  {
-    question: "Qual função exibe uma mensagem no console?",
-    options: ["alert()", "prompt()", "console.write()", "console.log()"],
-    answer: 3
-  },
-  {
-    question: "Como se cria uma função em JavaScript?",
-    options: ["func nome() {}", "def nome() {}", "new function nome()", "function nome() {}"],
-    answer: 3
-  },
-  {
-    question: "Qual método adiciona um item ao final de um array?",
-    options: ["push()", "add()", "append()", "concat()"],
-    answer: 0
-  },
-  {
-    question: "O que let permite que var não permite?",
-    options: ["Criar strings", "Criar funções", "Escopo de bloco", "Declarações constantes"],
-    answer: 2
-  },
-  {
-    question: "O que acontece ao usar = ao invés de ==?",
-    options: ["Compara valores", "Atribui valor", "Compara tipo", "Cria função"],
-    answer: 1
-  },
-  {
-    question: "Como você escreve uma condição “se” em JavaScript?",
-    options: ["if (condição) {}", "if condição:", "se (condição)", "when (condição)"],
-    answer: 0
-  },
-];
+// const questions = [
+//   {
+//     question: "Qual palavra-chave é usada para declarar uma variável em JavaScript?",
+//     options: ["value", "int", "var", "define"],
+//     answer: 2
+//   },
+//   {
+//     question: "Como se escreve um comentário de uma linha em JavaScript?",
+//     options: ["<!-- comentário -->", "// comentário", "# comentário", "/* comentário */"],
+//     answer: 1
+//   },
+//   {
+//     question: "Qual desses valores é considerado falsy?",
+//     options: ["{}", "null", "[]", "0"],
+//     answer: 1
+//   },
+//   {
+//     question: "Qual operador é usado para igualdade estrita (valor e tipo)?",
+//     options: ["===", "=", "==", "!="],
+//     answer: 0
+//   },
+//   {
+//     question: "Qual função exibe uma mensagem no console?",
+//     options: ["alert()", "prompt()", "console.write()", "console.log()"],
+//     answer: 3
+//   },
+//   {
+//     question: "Como se cria uma função em JavaScript?",
+//     options: ["func nome() {}", "def nome() {}", "new function nome()", "function nome() {}"],
+//     answer: 3
+//   },
+//   {
+//     question: "Qual método adiciona um item ao final de um array?",
+//     options: ["push()", "add()", "append()", "concat()"],
+//     answer: 0
+//   },
+//   {
+//     question: "O que let permite que var não permite?",
+//     options: ["Criar strings", "Criar funções", "Escopo de bloco", "Declarações constantes"],
+//     answer: 2
+//   },
+//   {
+//     question: "O que acontece ao usar = ao invés de ==?",
+//     options: ["Compara valores", "Atribui valor", "Compara tipo", "Cria função"],
+//     answer: 1
+//   },
+//   {
+//     question: "Como você escreve uma condição “se” em JavaScript?",
+//     options: ["if (condição) {}", "if condição:", "se (condição)", "when (condição)"],
+//     answer: 0
+//   },
+// ];
 
 // Variável que vai receber as perguntas do JSON
-// let questions = [];
+let questions = [];
 
 let currentQuestion = 0; //Índice da pergunta atual
 let score = 0;  //Pontuação do jogador
@@ -63,31 +63,31 @@ let autoCorrectCount = 2;  // Quantidade de acertos automáticos disponíveis po
 let playerName = "";  // Nome do jogador
 
 // Variáveis que pegam os dados do HTML
-const startScreen = document.getElementById("start-screen");
-const quizScreen = document.getElementById("quiz-screen");
-const endScreen = document.getElementById("end-screen");
-const playerNameSpan = document.getElementById("player-name");
-const rulesModal = document.getElementById("rules-modal");
+const startScreen = document.getElementById("tela-inicial");
+const quizScreen = document.getElementById("tela-quiz");
+const endScreen = document.getElementById("tela-final");
+const playerNameSpan = document.getElementById("nome-jogador");
+const rulesModal = document.getElementById("regras");
 
 // Carrega as perguntas do arquivo JSON e salva esse conteudo na variável questions. Caso as perguntas não carreguem, aparece a mensagem de erro de carregamento no console. 
-// fetch("questions.json")
-//   .then(response => {
-//     if (!response.ok) {
-//       throw new Error("Erro ao carregar o arquivo JSON");
-//     }
-//     return response.json();
-//   })
-//   .then(data => {
-//     questions = data;
-//   })
-//   .catch(error => {
-//     console.error("Erro ao carregar perguntas:", error);
-//   });
+fetch("questions.json")
+  .then(response => {
+    if (!response.ok) {
+      throw new Error("Erro ao carregar o arquivo JSON");
+    }
+    return response.json();
+  })
+  .then(data => {
+    questions = data;
+  })
+  .catch(error => {
+    console.error("Erro ao carregar perguntas:", error);
+  });
 
 
 // Salva o nome do jogador quando digitado no input e gera um alerta
-document.getElementById("save-name").addEventListener("click", () => {
-  playerName = document.getElementById("name-input").value;
+document.getElementById("salvar-nome").addEventListener("click", () => {
+  playerName = document.getElementById("name").value;
   if (playerName) {
     playerNameSpan.textContent = playerName;
     alert("Nome salvo!");
@@ -96,22 +96,22 @@ document.getElementById("save-name").addEventListener("click", () => {
 
 
 // Controlam a exibição das regras 
-document.getElementById("show-rules").addEventListener("click", () => {   // Ação para mostrar as regras
+document.getElementById("mostrar-regras").addEventListener("click", () => {   // Ação para mostrar as regras
   rulesModal.classList.remove("hidden");
 });
 
-document.getElementById("close-rules").addEventListener("click", () => {   // Ação para fechar as regras
+document.getElementById("fechar-regras").addEventListener("click", () => {   // Ação para fechar as regras
   rulesModal.classList.add("hidden");
 });
 
 
 // Varáveis que pegam os dados do html para iniciar o jogo 
-document.getElementById("start-game").addEventListener("click", startGame);
-document.getElementById("restart").addEventListener("click", restartGame);
-document.getElementById("quit").addEventListener("click", quitGame);
-document.getElementById("skip").addEventListener("click", skipQuestion);
-document.getElementById("auto-correct").addEventListener("click", autoCorrectQuestion);
-document.getElementById("play-again").addEventListener("click", restartGame);
+document.getElementById("iniciar").addEventListener("click", startGame);
+document.getElementById("reiniciar").addEventListener("click", restartGame);
+document.getElementById("desistir").addEventListener("click", quitGame);
+document.getElementById("pular").addEventListener("click", skipQuestion);
+document.getElementById("corrigir").addEventListener("click", autoCorrectQuestion);
+document.getElementById("jogar-novamente").addEventListener("click", restartGame);
 
 
 // Função para iniciar o jogo 
@@ -121,11 +121,11 @@ function startGame() {
     return;
   }
 
-  // // // Garante que as perguntas foram carregadas antes de começar
-  // if (questions.length === 0) {
-  //   alert("As perguntas ainda estão carregando. Tente de novo em alguns segundos.");
-  //   return;
-  // }
+  // // // Garante que as perguntas foram carregadas antes de começar - JSON
+  if (questions.length === 0) {
+    alert("As perguntas ainda estão carregando. Tente de novo em alguns segundos.");
+    return;
+  }
 
   startScreen.classList.add("hidden");    // Adiciona a classe hidden para a tela inicial  
   quizScreen.classList.remove("hidden");  // Remove a classe hidden para a tela de perguntas 
@@ -143,9 +143,9 @@ function showQuestion() {
 
   setTimeout(() => {
     const questionData = questions[currentQuestion];
-    document.getElementById("question").textContent = questionData.question;
+    document.getElementById("questao").textContent = questionData.question;
 
-    const optionsContainer = document.getElementById("options");
+    const optionsContainer = document.getElementById("opcoes");
     optionsContainer.innerHTML = "";
 
     questionData.options.forEach((opt, index) => {
@@ -167,7 +167,7 @@ function showQuestion() {
 function checkAnswer(selected, button) {
   clearInterval(timer);
   const correctIndex = questions[currentQuestion].answer;
-  const options = document.querySelectorAll("#options button");
+  const options = document.querySelectorAll("#opcoes button");
   options.forEach(btn => btn.disabled = true);
 
   const feedbackEl = document.getElementById("feedback");
@@ -193,10 +193,10 @@ function checkAnswer(selected, button) {
 
 function nextQuestion() {
   currentQuestion++;
-  if (currentQuestion < questions.length) {
+  if (currentQuestion < questions.length) {  //Se o índice atual da pergunta atual for menor que a quantidade total de perguntas, ele passa para a próxima pergunta
     showQuestion();
   } else {
-    endGame();
+    endGame();  //Se não, o jogo é encerrado
   }
 }
 
@@ -205,7 +205,7 @@ function nextQuestion() {
 function skipQuestion() {
   if (skipCount > 0) {
     skipCount--;
-    document.getElementById("skip").textContent = `Pular Pergunta (${skipCount})`;
+    document.getElementById("pular").textContent = `Pular Pergunta (${skipCount})`;
     nextQuestion();
   } else {
     alert("Você já usou todas as puladas.");
@@ -216,7 +216,7 @@ function skipQuestion() {
 function autoCorrectQuestion() {
   if (autoCorrectCount > 0) {
     autoCorrectCount--;
-    document.getElementById("auto-correct").textContent = `Acertar Pergunta (${autoCorrectCount})`;
+    document.getElementById("corrigir").textContent = `Acertar Pergunta (${autoCorrectCount})`;
     score++;
     nextQuestion();
   } else {
@@ -228,8 +228,8 @@ function autoCorrectQuestion() {
 // Função para barra de progresso
 function updateProgress() {
   const progress = ((currentQuestion) / questions.length) * 100;
-  document.getElementById("progress-bar").style.width = `${progress}%`;
-  document.getElementById("progress-text").textContent =
+  document.getElementById("barra-de-progresso").style.width = `${progress}%`;
+  document.getElementById("progresso-texto").textContent =
     `${currentQuestion + 1}/${questions.length}`;
 }
 

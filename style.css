@@ -26,7 +26,7 @@ header {
   border-radius: 30px;
 }
 
-.player-info {
+.jogador-info {
   position: fixed;
   top: 15px;
   right: 20px;
@@ -69,7 +69,7 @@ input[type="text"] {
 }
 
 /* Botões principais da tela inicial */
-#main-buttons button {
+#botoes-principais button {
   width: 220px;
   padding: 14px 20px;
   font-size: 18px;
@@ -84,20 +84,20 @@ input[type="text"] {
   letter-spacing: 1px;
 }
 
-#main-buttons button:hover {
+#botoes-principais button:hover {
   background: rgba(255, 255, 255, 0.25);
   box-shadow: 0 8px 20px rgba(0,0,0,0.3);
   
 }
 
-#main-buttons {
+#botoes-principais {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 15px;
 }
 
-.button-save {
+.botao-salvar {
   padding: 10px 20px;
   margin: 5px;
   cursor: pointer;
@@ -120,7 +120,7 @@ button:hover {
 }
 
 /* Tela de Regras */
-#rules-modal .modal-content {
+#regras .regras-conteudo {
   position: relative;
   background: rgba(255,255,255,0.1);
   padding: 40px 30px 20px;
@@ -130,7 +130,7 @@ button:hover {
 }
 
 /* Fundo da tela de regras */
-#rules-modal {
+#regras {
   position: fixed;
   top: 0;
   left: 0;
@@ -143,7 +143,7 @@ button:hover {
   z-index: 10;
 }
 
-#close-rules {
+#fechar-regras {
   position: absolute;
   top: 10px;
   right: 15px;
@@ -154,7 +154,7 @@ button:hover {
   cursor: pointer;
 }
 
-#close-rules:hover {
+#fechar-regras:hover {
   color: #ff5c5c;
 }
 
@@ -169,14 +169,14 @@ button:hover {
   overflow: hidden;
 }
 
-#progress-bar {
+#barra-de-progresso {
   height: 100%;
   background: #00ffb7;
   width: 0%;
   transition: width 0.8s ease-in-out;
 }
 
-#progress-text {
+#progresso-texto {
   position: absolute;
   top: 0;
   left: 50%;
@@ -188,14 +188,14 @@ button:hover {
 }
 
 /* Perguntas */
-#options {
+#opcoes {
   display: flex;
   flex-direction: column;
   gap: 15px;
   margin-top: 20px;
 }
 
-#options button {
+#opcoes button {
   padding: 14px 20px;
   font-size: 17px;
   border-radius: 12px;
@@ -208,18 +208,18 @@ button:hover {
   box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
 
-#options button:hover:not(:disabled) {
+#opcoes button:hover:not(:disabled) {
   background: rgba(255, 255, 255, 0.25);
   box-shadow: 0 6px 15px rgba(0,0,0,0.4);
   transform: scale(1.03);
 }
 
-#options button:disabled {
+#opcoes button:disabled {
   cursor: default;
   opacity: 0.7;
 }
 
-#options button.correct {
+#opcoes button.correct {
   background-color: rgba(40, 167, 69, 0.85);
   border-color: #28a745;
   color: white;
@@ -227,7 +227,7 @@ button:hover {
   box-shadow: 0 0 10px #28a745;
 }
 
-#options button.incorrect {
+#opcoes button.incorrect {
   background-color: rgba(220, 53, 69, 0.85);
   border-color: #dc3545;
   color: white;
@@ -244,7 +244,7 @@ button:hover {
   border-radius: 10px;
 }
 
-.top-bar {
+.topo {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -276,7 +276,7 @@ button:hover {
 }
 
 /* Área de botões dentro do quiz */
-.actions {
+.acoes {
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -285,12 +285,12 @@ button:hover {
 }
 
 /* Botões de ajuda */
-.help-buttons {
+.botoes-ajuda {
   display: flex;
   gap: 20px;
 }
 
-.help-buttons button {
+.botoes-ajuda button {
   min-width: 160px;
   padding: 14px 22px;
   font-size: 16px;
@@ -309,13 +309,13 @@ button:hover {
   gap: 10px;
 }
 
-.help-buttons button:hover:not(:disabled) {
+.botoes-ajuda button:hover:not(:disabled) {
   background: rgba(255, 255, 255, 0.25);
   transform: translateY(-4px) scale(1.05);
   box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25);
 }
 
-.help-buttons button:disabled {
+.botoes-ajuda button:disabled {
   opacity: 0.5;
   cursor: default;
   background: rgba(255, 255, 255, 0.08);
@@ -323,13 +323,13 @@ button:hover {
 }
 
 /* Botões principais do quiz */
-.main-buttons {
+.botoes-principais {
   display: flex;
   gap: 20px;
   justify-content: center;
 }
 
-.main-buttons button {
+.botoes-principais button {
   min-width: 140px;
   padding: 14px 22px;
   font-size: 16px;
@@ -344,37 +344,37 @@ button:hover {
   transition: all 0.3s ease;
 }
 
-.main-buttons button:hover:not(:disabled) {
+.botoes-principais button:hover:not(:disabled) {
   background: rgba(255, 255, 255, 0.25);
   transform: translateY(-4px) scale(1.05);
   box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25);
 }
 
-#restart {
+#reiniciar {
   border-color: #e74c3c;
   color: #e74c3c;
 }
 
-#restart:hover:not(:disabled) {
+#reiniciar:hover:not(:disabled) {
   background: rgba(231, 76, 60, 0.25);
   color: #fff;
   border-color: #c0392b;
   box-shadow: 0 12px 28px rgba(192, 57, 43, 0.7);
 }
 
-#quit {
+#desistir {
   border-color: #e9700d;
   color: #e9700d;
 }
 
-#quit:hover:not(:disabled) {
+#desistir:hover:not(:disabled) {
   background: rgba(149, 165, 166, 0.25);
   color: #fff;
   border-color: #7f8c8d;
   box-shadow: 0 12px 28px rgba(127, 140, 141, 0.7);
 }
 
-#play-again {
+#jogar-novamente {
   padding: 14px 30px;
   font-size: 18px;
   font-weight: 700;
@@ -387,7 +387,7 @@ button:hover {
   box-shadow: 0 4px 12px rgba(0, 255, 183, 0.5);
 }
 
-#play-again:hover {
+#jogar-novamente:hover {
   background: #00ffb7;               
   color: #000;                      
   box-shadow: 0 8px 24px rgba(0, 255, 183, 0.8);
